@@ -24,7 +24,8 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void Update () {
-		
+        MoveThePlayer();
+        playerController.Move(playerMove);
 	}
 
     void MoveThePlayer()
@@ -47,14 +48,26 @@ public class PlayerMovement : MonoBehaviour {
                     }
                 }
             }
-            if(canMove)
-            {
-                playerAnimator.SetFloat("walk", 1.0f);
+        }
+        if (canMove)
+        {
+            playerAnimator.SetFloat("Walk", 1.0f);
 
-                Vector3 targetTemporary = new Vector3(targetPosition.x, transform.position.y, targetPosition.z);
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetTemporary - transform.position),
-                    15.0f * Time.deltaTime);
+            Vector3 targetTemporary = new Vector3(targetPosition.x, transform.position.y, targetPosition.z);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetTemporary - transform.position),
+                15.0f * Time.deltaTime);
+
+            playerMove = transform.forward * moveSpeed * Time.deltaTime;
+
+            if (Vector3.Distance(transform.position, targetPosition) <= 0.5f)
+            {
+                canMove = false;
             }
+        }
+        else
+        {
+            playerMove.Set(0f, 0f, 0f);
+            playerAnimator.SetFloat("Walk", 0f);
         }
     }
 }

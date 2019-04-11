@@ -18,15 +18,51 @@ public class PlayerMovement : MonoBehaviour {
     private bool canMove;
     private bool finishedMovement = true;
 
-	void Awake () {
+	void Awake ()
+    {
         playerAnimator = GetComponent<Animator>();
         playerController = GetComponent<CharacterController>();
 	}
 
-	void Update () {
-        MoveThePlayer();
-        playerController.Move(playerMove);
+	void Update ()
+    {
+        CalculateHeight();
+        CheckIfFinishedMovement();
 	}
+
+    bool IsGrounded()
+    {
+        return collisionFlags == CollisionFlags.CollidedBelow ? true : false;
+    }
+
+    void CalculateHeight()
+    {
+        if(IsGrounded())
+        {
+            height = 0f;
+        }
+        else
+        {
+            height -= gravity * Time.deltaTime;
+        }
+    }
+
+    void CheckIfFinishedMovement()
+    {
+        if(!finishedMovement)
+        {
+            if(!playerAnimator.IsInTransition(0) && !playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Stand") && playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f)
+            {
+                finishedMovement = true;
+            }
+        }
+        else
+        {
+            MoveThePlayer();
+            playerMove.y = height * Time.deltaTime;
+            collisionFlags = playerController.Move(playerMove);
+        }
+    }
 
     void MoveThePlayer()
     {

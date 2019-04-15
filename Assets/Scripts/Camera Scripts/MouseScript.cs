@@ -11,11 +11,6 @@ public class MouseScript : MonoBehaviour
     public GameObject mousePoint;
     private GameObject instantiatedMouse;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         Cursor.SetCursor(cursorTexture, hotSpot, mode);
@@ -30,9 +25,19 @@ public class MouseScript : MonoBehaviour
                 if(hit.collider is TerrainCollider)
                 {
                     Vector3 temporaryPosition = hit.point;
-                    temporaryPosition.y = 0.35f;
+                    temporaryPosition.y = 0.25f;
 
-                    Instantiate(mousePoint, temporaryPosition, Quaternion.identity);
+                    if(instantiatedMouse == null)
+                    {
+                        instantiatedMouse = Instantiate(mousePoint) as GameObject;
+                        instantiatedMouse.transform.position = temporaryPosition;
+                    }
+                    else
+                    {
+                        Destroy(instantiatedMouse);
+                        instantiatedMouse = Instantiate(mousePoint) as GameObject;
+                        instantiatedMouse.transform.position = temporaryPosition;
+                    }
                 }
             }
         }

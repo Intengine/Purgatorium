@@ -1507,6 +1507,10 @@ PrefabInstance:
       propertyPath: fillWaitImage6
       value: 
       objectReference: {fileID: 1203963423}
+    - target: {fileID: 48428938, guid: 752940a7a44d345a89d04f4079aff135, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 752940a7a44d345a89d04f4079aff135, type: 3}
 --- !u!1 &1029705435

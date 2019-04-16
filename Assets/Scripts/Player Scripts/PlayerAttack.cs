@@ -35,7 +35,7 @@ public class PlayerAttack : MonoBehaviour
             canAttack = false;
         }
 
-        CheckToFade();
+        //CheckToFade();
         CheckInput();
     }
 
@@ -109,6 +109,21 @@ public class PlayerAttack : MonoBehaviour
         else
         {
             animator.SetInteger("Atk", 0);
+        }
+
+        if(Input.GetKey(KeyCode.Space))
+        {
+            Vector3 targetPosition = Vector3.zero;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if(Physics.Raycast(ray, out hit))
+            {
+                targetPosition = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+            }
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetPosition - transform.position),
+                15f * Time.deltaTime);
         }
     }
 }

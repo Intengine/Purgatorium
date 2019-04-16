@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerAttackEffects : MonoBehaviour
 {
+    public GameObject groundImpactSpawn, groundImpactPrefab;
+    public GameObject kickFXSpawn, kickFXPrefab;
+    public GameObject fireTornadoSpawn, fireTornadoPrefab;
+    public GameObject fireShieldSpawn, fireShieldPrefab;
+    public GameObject healFXPrefab;
+    public GameObject thunderFXPrefab;
+
     void Start()
     {
         

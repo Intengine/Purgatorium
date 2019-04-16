@@ -96,7 +96,7 @@ public class PlayerAttack : MonoBehaviour
                 fadeImages[4] = 1;
                 animator.SetInteger("Atk", 5);
             }
-        } else if(Input.GetMouseButtonDown(1))
+        } else if(Input.GetKeyDown(KeyCode.Alpha6))
         {
             playerMove.TargetPosition = transform.position;
 
@@ -161,7 +161,7 @@ public class PlayerAttack : MonoBehaviour
             }
         } else if (fadeImages[5] == 1)
         {
-            if (FadeAndWait(fillWaitImage5, 0.08f))
+            if (FadeAndWait(fillWaitImage6, 0.08f))
             {
                 fadeImages[5] = 0;
             }

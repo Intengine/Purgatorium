@@ -12,7 +12,7 @@ public class PlayerAttack : MonoBehaviour
     public Image fillWaitImage5;
     public Image fillWaitImage6;
 
-    private int[] fadeImages = new int[] { 0, 0, 0, 0, 0, 0 };
+    private readonly int[] fadeImages = { 0, 0, 0, 0, 0, 0 };
 
     private Animator animator;
     private bool canAttack = true;
@@ -35,7 +35,7 @@ public class PlayerAttack : MonoBehaviour
             canAttack = false;
         }
 
-        //CheckToFade();
+        CheckToFade();
         CheckInput();
     }
 
@@ -125,5 +125,72 @@ public class PlayerAttack : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetPosition - transform.position),
                 15f * Time.deltaTime);
         }
+    }
+
+    void CheckToFade()
+    {
+        if(fadeImages[0] == 1)
+        {
+            if(FadeAndWait(fillWaitImage1, 1.0f))
+            {
+                fadeImages[0] = 0;
+            }
+        } else if(fadeImages[1] == 1)
+        {
+            if (FadeAndWait(fillWaitImage2, 0.7f))
+            {
+                fadeImages[1] = 0;
+            }
+        } else if (fadeImages[2] == 1)
+        {
+            if (FadeAndWait(fillWaitImage3, 0.1f))
+            {
+                fadeImages[2] = 0;
+            }
+        } else if (fadeImages[3] == 1)
+        {
+            if (FadeAndWait(fillWaitImage4, 0.2f))
+            {
+                fadeImages[3] = 0;
+            }
+        } else if (fadeImages[4] == 1)
+        {
+            if (FadeAndWait(fillWaitImage5, 0.3f))
+            {
+                fadeImages[4] = 0;
+            }
+        } else if (fadeImages[5] == 1)
+        {
+            if (FadeAndWait(fillWaitImage5, 0.08f))
+            {
+                fadeImages[5] = 0;
+            }
+        }
+    }
+
+    bool FadeAndWait(Image fadeImage, float fadeTime)
+    {
+        bool faded = false;
+
+        if(fadeImage == null)
+        {
+            return faded;
+        }
+
+        if(!fadeImage.gameObject.activeInHierarchy)
+        {
+            fadeImage.gameObject.SetActive(true);
+            fadeImage.fillAmount = 1f;
+        }
+
+        fadeImage.fillAmount -= fadeTime * Time.deltaTime;
+
+        if(fadeImage.fillAmount <= 0.0f)
+        {
+            fadeImage.gameObject.SetActive(false);
+            faded = true;
+        }
+
+        return faded;
     }
 }

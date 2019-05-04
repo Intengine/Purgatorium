@@ -1173,6 +1173,7 @@ GameObject:
   - component: {fileID: 8834587277272132921}
   - component: {fileID: 8919375541983877537}
   - component: {fileID: 8832712262462289557}
+  - component: {fileID: 2123924271}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -1235,6 +1236,28 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1.03, z: 0}
+--- !u!195 &2123924271
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8832211034249197623}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.19
+  m_Speed: 2
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 360
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: -0.09
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8832236585431498167
 GameObject:
   m_ObjectHideFlags: 0

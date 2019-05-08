@@ -46,11 +46,40 @@ public class EnemyControl : MonoBehaviour
 
     void Awake()
     {
-        
+        playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
+        navAgent = GetComponent<NavMeshAgent>();
+        characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
+
+        initialPosition = transform.position;
+        whereToNavigate = transform.position;
     }
 
     void Update()
     {
-        
+        if(enemyCurrentState != EnemyState.DEATH)
+        {
+            // enemyCurrentState = SetEnemyState();
+            if(finishedMovement)
+            {
+               // GetStateControl(enemyCurrentState);
+            }
+            else
+            {
+                if(!animator.IsInTransition(0) && animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+                {
+                    finishedMovement = true;
+                } else if(!animator.IsInTransition(0) && animator.GetCurrentAnimatorStateInfo(0).IsTag("Atk1") || animator.GetCurrentAnimatorStateInfo(0).IsTag("Atk2"))
+                {
+                    animator.SetInteger("Atk", 0);
+                }
+            }
+        }
+        else
+        {
+            animator.SetBool("Death", true);
+            characterController.enabled = false;
+            navAgent.enabled = false;
+        }
     }
 }

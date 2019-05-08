@@ -59,7 +59,7 @@ public class EnemyControl : MonoBehaviour
     {
         if(enemyCurrentState != EnemyState.DEATH)
         {
-            // enemyCurrentState = SetEnemyState();
+            enemyCurrentState = SetEnemyState(enemyCurrentState, enemyLastState, enemyToPlayerDistance);
             if(finishedMovement)
             {
                // GetStateControl(enemyCurrentState);
@@ -80,6 +80,27 @@ public class EnemyControl : MonoBehaviour
             animator.SetBool("Death", true);
             characterController.enabled = false;
             navAgent.enabled = false;
+
+            if (!animator.IsInTransition(0) && animator.GetCurrentAnimatorStateInfo(0).IsName("Death") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f)
+            {
+                Destroy(gameObject, 2f);
+            }
+        }
+    }
+
+    EnemyState SetEnemyState(EnemyState currentState, EnemyState lastState, float enemyToPlayerDistance)
+    {
+        enemyToPlayerDistance = Vector3.Distance(transform.position, playerTarget.position);
+        float initialDistance = Vector3.Distance(initialPosition, transform.position);
+
+        if(initialDistance > followDistance)
+        {
+            lastState = currentState;
+            currentState = EnemyState.GOBACK;
+        } else if(enemyToPlayerDistance <= attackDistance)
+        {
+            lastState = currentState;
+            currentState = EnemyState.ATTACK;
         }
     }
 }

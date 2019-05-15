@@ -57,19 +57,19 @@ public class EnemyControl : MonoBehaviour
 
     void Update()
     {
-        if(enemyCurrentState != EnemyState.DEATH)
+        if (enemyCurrentState != EnemyState.DEATH)
         {
             enemyCurrentState = SetEnemyState(enemyCurrentState, enemyLastState, enemyToPlayerDistance);
-            if(finishedMovement)
+            if (finishedMovement)
             {
-               // GetStateControl(enemyCurrentState);
+                // GetStateControl(enemyCurrentState);
             }
             else
             {
-                if(!animator.IsInTransition(0) && animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+                if (!animator.IsInTransition(0) && animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
                 {
                     finishedMovement = true;
-                } else if(!animator.IsInTransition(0) && animator.GetCurrentAnimatorStateInfo(0).IsTag("Atk1") || animator.GetCurrentAnimatorStateInfo(0).IsTag("Atk2"))
+                } else if (!animator.IsInTransition(0) && animator.GetCurrentAnimatorStateInfo(0).IsTag("Atk1") || animator.GetCurrentAnimatorStateInfo(0).IsTag("Atk2"))
                 {
                     animator.SetInteger("Atk", 0);
                 }
@@ -93,30 +93,52 @@ public class EnemyControl : MonoBehaviour
         enemyToPlayerDistance = Vector3.Distance(transform.position, playerTarget.position);
         float initialDistance = Vector3.Distance(initialPosition, transform.position);
 
-        if(initialDistance > followDistance)
+        if (initialDistance > followDistance)
         {
             lastState = currentState;
             currentState = EnemyState.GOBACK;
-        } else if(enemyToPlayerDistance <= attackDistance)
+        } else if (enemyToPlayerDistance <= attackDistance)
         {
             lastState = currentState;
             currentState = EnemyState.ATTACK;
-        } else if(enemyToPlayerDistance >= alertAttackDistance && lastState == EnemyState.PAUSE || lastState == EnemyState.ATTACK)
+        } else if (enemyToPlayerDistance >= alertAttackDistance && lastState == EnemyState.PAUSE || lastState == EnemyState.ATTACK)
         {
             lastState = currentState;
             currentState = EnemyState.PAUSE;
-        } else if(enemyToPlayerDistance <= alertAttackDistance && enemyToPlayerDistance > attackDistance)
+        } else if (enemyToPlayerDistance <= alertAttackDistance && enemyToPlayerDistance > attackDistance)
         {
-            if(currentState != EnemyState.GOBACK || lastState == EnemyState.WALK)
+            if (currentState != EnemyState.GOBACK || lastState == EnemyState.WALK)
             {
                 lastState = currentState;
                 currentState = EnemyState.PAUSE;
             }
-        } else if(enemyToPlayerDistance > alertAttackDistance && lastState != EnemyState.GOBACK && lastState != EnemyState.PAUSE)
+        } else if (enemyToPlayerDistance > alertAttackDistance && lastState != EnemyState.GOBACK && lastState != EnemyState.PAUSE)
         {
             lastState = currentState;
             currentState = EnemyState.WALK;
         }
         return currentState;
+    }
+
+    void GetEnemyState(EnemyState currentState)
+    {
+        if (currentState == EnemyState.RUN || currentState == EnemyState.PAUSE)
+        {
+            if(currentState != EnemyState.ATTACK)
+            {
+                Vector3 targetPosition = new Vector3(playerTarget.position.x, transform.position.y, playerTarget.position.z);
+
+                animator.SetBool("Walk", false);
+                animator.SetBool("Run", true);
+
+                navAgent.SetDestination(targetPosition);
+            }
+        } else if(currentState == EnemyState.ATTACK)
+        {
+            animator.SetBool("Run", false);
+            whereToMove.Set(0f, 0f, 0f);
+            navAgent.SetDestination(transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(playerTarget.position - transform.position), 5f * Time.deltaTime);
+        }
     }
 }

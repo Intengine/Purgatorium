@@ -101,6 +101,22 @@ public class EnemyControl : MonoBehaviour
         {
             lastState = currentState;
             currentState = EnemyState.ATTACK;
+        } else if(enemyToPlayerDistance >= alertAttackDistance && lastState == EnemyState.PAUSE || lastState == EnemyState.ATTACK)
+        {
+            lastState = currentState;
+            currentState = EnemyState.PAUSE;
+        } else if(enemyToPlayerDistance <= alertAttackDistance && enemyToPlayerDistance > attackDistance)
+        {
+            if(currentState != EnemyState.GOBACK || lastState == EnemyState.WALK)
+            {
+                lastState = currentState;
+                currentState = EnemyState.PAUSE;
+            }
+        } else if(enemyToPlayerDistance > alertAttackDistance && lastState != EnemyState.GOBACK && lastState != EnemyState.PAUSE)
+        {
+            lastState = currentState;
+            currentState = EnemyState.WALK;
         }
+        return currentState;
     }
 }

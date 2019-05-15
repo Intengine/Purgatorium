@@ -145,6 +145,23 @@ public class EnemyControl : MonoBehaviour
                 int attackRange = Random.Range(1, 3);
                 animator.SetInteger("Atk", attackRange);
                 finishedAnimation = false;
+                currentAttackTime = 0f;
+            }
+            else
+            {
+                animator.SetInteger("Atk", 0);
+                currentAttackTime += Time.deltaTime;
+            }
+        } else if(currentState == EnemyState.GOBACK)
+        {
+            animator.SetBool("Run", true);
+            Vector3 targetPosition = new Vector3(initialPosition.x, transform.position.y, initialPosition.z);
+            navAgent.SetDestination(targetPosition);
+
+            if(Vector3.Distance(targetPosition, initialPosition) <= 3.5f)
+            {
+                enemyLastState = currentState;
+                currentState = EnemyState.WALK;
             }
         }
     }

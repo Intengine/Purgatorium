@@ -139,6 +139,13 @@ public class EnemyControl : MonoBehaviour
             whereToMove.Set(0f, 0f, 0f);
             navAgent.SetDestination(transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(playerTarget.position - transform.position), 5f * Time.deltaTime);
+
+            if(currentAttackTime >= waitAttackTime)
+            {
+                int attackRange = Random.Range(1, 3);
+                animator.SetInteger("Atk", attackRange);
+                finishedAnimation = false;
+            }
         }
     }
 }

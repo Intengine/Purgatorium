@@ -163,6 +163,20 @@ public class EnemyControl : MonoBehaviour
                 enemyLastState = currentState;
                 currentState = EnemyState.WALK;
             }
+        } else if(currentState == EnemyState.WALK)
+        {
+            animator.SetBool("Run", false);
+            animator.SetBool("Walk", true);
+
+            if(Vector3.Distance(transform.position, whereToNavigate) <= 2f)
+            {
+                whereToNavigate.x = Random.Range(initialPosition.x - 5f, initialPosition.x + 5f);
+                whereToNavigate.z = Random.Range(initialPosition.z - 5f, initialPosition.z + 5f);
+            }
+            else
+            {
+                navAgent.SetDestination(whereToNavigate);
+            }
         }
     }
 }

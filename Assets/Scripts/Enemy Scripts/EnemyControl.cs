@@ -178,5 +178,9 @@ public class EnemyControl : MonoBehaviour
                 navAgent.SetDestination(whereToNavigate);
             }
         }
+        else
+        {
+            animator.SetBool("Run", false);
+        }
     }
 }

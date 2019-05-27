@@ -181,6 +181,9 @@ public class EnemyControl : MonoBehaviour
         else
         {
             animator.SetBool("Run", false);
+            animator.SetBool("Walk", false);
+            whereToMove.Set(0f, 0f, 0f);
+            navAgent.isStopped = true;
         }
     }
 }

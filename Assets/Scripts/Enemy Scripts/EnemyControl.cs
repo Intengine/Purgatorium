@@ -128,10 +128,13 @@ public class EnemyControl : MonoBehaviour
             {
                 Vector3 targetPosition = new Vector3(playerTarget.position.x, transform.position.y, playerTarget.position.z);
 
-                animator.SetBool("Walk", false);
-                animator.SetBool("Run", true);
+                if(Vector3.Distance(transform.position, targetPosition) >= 2.1f)
+                {
+                    animator.SetBool("Walk", false);
+                    animator.SetBool("Run", true);
 
-                navAgent.SetDestination(targetPosition);
+                    navAgent.SetDestination(targetPosition);
+                }
             }
         } else if(currentState == EnemyState.ATTACK)
         {

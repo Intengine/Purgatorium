@@ -97,21 +97,21 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
-    agentHeight: 2
+    agentRadius: 0.32
+    agentHeight: 0.5
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.10666666
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: a1aa983ca218b4c3ba42f09676b46489, type: 2}
 --- !u!1 &11080197
 GameObject:
   m_ObjectHideFlags: 0
@@ -3226,7 +3226,7 @@ PrefabInstance:
     - target: {fileID: 8834587277272132921, guid: 15fe5f2ab3f5b4ce2afe31c54085c0b8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.27
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8834587277272132921, guid: 15fe5f2ab3f5b4ce2afe31c54085c0b8,
         type: 3}
@@ -3272,11 +3272,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8832712262462289557, guid: 15fe5f2ab3f5b4ce2afe31c54085c0b8,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15fe5f2ab3f5b4ce2afe31c54085c0b8, type: 3}

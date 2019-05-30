@@ -817,7 +817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347632655}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.07, y: 0, z: 7.76}
+  m_LocalPosition: {x: 2.94, y: 0, z: 8.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 640444910}
@@ -1515,7 +1515,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876241461}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.91, y: 0, z: 1.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 640444910}
@@ -2548,28 +2548,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666138324}
   m_CullTransparentMesh: 0
---- !u!1 &1694755549 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8832211034249197623, guid: 15fe5f2ab3f5b4ce2afe31c54085c0b8,
-    type: 3}
-  m_PrefabInstance: {fileID: 8832712261526085479}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1694755550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694755549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5fb5699fe90e41ac8b22a27fad51c15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkPoints:
-  - {fileID: 876241462}
-  - {fileID: 347632656}
-  - {fileID: 1752071908}
 --- !u!1 &1742420342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3418,10 +3396,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4201070796029551234, guid: 15fe5f2ab3f5b4ce2afe31c54085c0b8,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 1694755550, guid: 15fe5f2ab3f5b4ce2afe31c54085c0b8, type: 3}
+      propertyPath: walkPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 876241462}
+    - target: {fileID: 1694755550, guid: 15fe5f2ab3f5b4ce2afe31c54085c0b8, type: 3}
+      propertyPath: walkPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 347632656}
+    - target: {fileID: 1694755550, guid: 15fe5f2ab3f5b4ce2afe31c54085c0b8, type: 3}
+      propertyPath: walkPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1752071908}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15fe5f2ab3f5b4ce2afe31c54085c0b8, type: 3}

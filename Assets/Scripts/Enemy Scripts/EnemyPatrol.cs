@@ -53,5 +53,37 @@ public class EnemyPatrol : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            if(distance > attackDistance)
+            {
+                navAgent.isStopped = false;
+                animator.SetBool("Walk", false);
+                animator.SetBool("Run", true);
+                animator.SetInteger("Atk", 0);
+
+                navAgent.SetDestination(playerTarget.position);
+            }
+            else
+            {
+                navAgent.isStopped = true;
+                animator.SetBool("Run", false);
+
+                Vector3 targetPosition = new Vector3(playerTarget.position.x, transform.position.y, playerTarget.position.z);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetPosition - transform.position), 5f * Time.deltaTime);
+
+                if(currentAttackTime >= waitAttackTime)
+                {
+                    int attackRange = Random.Range(1, 3);
+                    animator.SetInteger("Atk", attackRange);
+                    currentAttackTime = 0f;
+                }
+                else
+                {
+                    animator.SetInteger("Atk", 0);
+                    currentAttackTime += Time.deltaTime;
+                }
+            }
+        }
     }
 }

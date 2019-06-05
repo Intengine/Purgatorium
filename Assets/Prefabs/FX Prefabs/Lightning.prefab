@@ -45,9 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   radius: 0.5
-  damageCount: 10
+  damageCount: 40
 --- !u!1 &1164094381172014
 GameObject:
   m_ObjectHideFlags: 0

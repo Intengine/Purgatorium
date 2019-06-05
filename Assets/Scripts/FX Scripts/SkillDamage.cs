@@ -8,13 +8,11 @@ public class SkillDamage : MonoBehaviour
     public float radius = 0.5f;
     public float damageCount = 10f;
 
-    void Start()
-    {
-        
-    }
+    private EnemyHealth enemyHealth;
+    private bool colided;
 
     void Update()
     {
-        
+        Collider[] hits = Physics.OverlapSphere(transform.position, radius, enemyLayer);
     }
 }

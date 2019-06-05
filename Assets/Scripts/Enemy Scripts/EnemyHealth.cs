@@ -6,13 +6,15 @@ public class EnemyHealth : MonoBehaviour
 {
     public float health = 100f;
 
-    void Start()
+    public void TakeDamage(float amount)
     {
-        
-    }
+        health -= amount;
 
-    void Update()
-    {
-        
+        print("Enemy took damage, health is " + health);
+
+        if(health <= 0)
+        {
+
+        }
     }
 }

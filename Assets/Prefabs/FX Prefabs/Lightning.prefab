@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4074087295199366}
+  - component: {fileID: 8356099124156310046}
   m_Layer: 0
   m_Name: DamagePoint
   m_TagString: Untagged
@@ -30,6 +31,23 @@ Transform:
   m_Father: {fileID: 4111129288310284}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8356099124156310046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134337659616160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3457b80fca3fb4d23ae91e5462816cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  radius: 0.5
+  damageCount: 10
 --- !u!1 &1164094381172014
 GameObject:
   m_ObjectHideFlags: 0

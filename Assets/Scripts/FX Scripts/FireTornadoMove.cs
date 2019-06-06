@@ -22,7 +22,13 @@ public class FireTornadoMove : MonoBehaviour
 
     void Update()
     {
+        Move();
         CheckForDamage();
+    }
+
+    void Move()
+    {
+        transform.Translate(Vector3.forward * (speed * Time.deltaTime));
     }
 
     void CheckForDamage()
@@ -37,7 +43,10 @@ public class FireTornadoMove : MonoBehaviour
         if (collided)
         {
             enemyHealth.TakeDamage(damageCount);
-            enabled = false;
+            Vector3 temporaryPosition = transform.position;
+            temporaryPosition.y += 2f;
+            Instantiate(fireExplosion, temporaryPosition, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 }

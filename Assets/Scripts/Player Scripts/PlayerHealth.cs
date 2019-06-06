@@ -7,10 +7,17 @@ public class PlayerHealth : MonoBehaviour
     public float health = 100f;
     private bool isShielded;
 
-    public bool Shielded()
+    public bool Shielded
     {
-        get { return isShielded; }
-        set { isShielded = value; }
+        get
+        { 
+        return isShielded;
+        }
+
+        set
+        {
+        isShielded = value;
+        }
     }
 
     public void TakeDamage(float amount)

@@ -79,6 +79,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4511455240583942}
   - component: {fileID: 5507827874056635617}
+  - component: {fileID: 1157620336717855444}
   m_Layer: 0
   m_Name: FireShield
   m_TagString: Untagged
@@ -114,7 +115,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef07453dde114584be6bf05a2d04840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 2.5
+  timer: 3
+--- !u!114 &1157620336717855444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351438999312512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ea178b97463445ba279dea978061f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1373942855793420
 GameObject:
   m_ObjectHideFlags: 0

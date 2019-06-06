@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &48428938
 Transform:
   m_ObjectHideFlags: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48428937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: -0.35}
+  m_LocalPosition: {x: 0, y: -1.5, z: -0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4108064779318648}
@@ -4773,7 +4773,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1766510819
 Transform:
   m_ObjectHideFlags: 0
@@ -6811,6 +6811,7 @@ GameObject:
   - component: {fileID: 114437110373826750}
   - component: {fileID: 1234828013}
   - component: {fileID: 772377428}
+  - component: {fileID: 2199602519256034252}
   m_Layer: 0
   m_Name: Black Knight
   m_TagString: Player
@@ -6932,6 +6933,18 @@ MonoBehaviour:
     type: 3}
   thunderFXPrefab: {fileID: 1164094381172014, guid: d52235af7d56d4f148d6e52c8bc2c348,
     type: 3}
+--- !u!114 &2199602519256034252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933237757772182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62e7d8d8c4c84444594ae4467099e024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1954894241962672
 GameObject:
   m_ObjectHideFlags: 0

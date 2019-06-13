@@ -44,12 +44,15 @@ public class EnemyControl : MonoBehaviour
     private NavMeshAgent navAgent;
     private Vector3 whereToNavigate;
 
+    private EnemyHealth enemyHealth;
+
     void Awake()
     {
         playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
         navAgent = GetComponent<NavMeshAgent>();
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        enemyHealth = GetComponent<EnemyHealth>();
 
         initialPosition = transform.position;
         whereToNavigate = transform.position;
@@ -57,6 +60,10 @@ public class EnemyControl : MonoBehaviour
 
     void Update()
     {
+        if(enemyHealth.health <= 0f) {
+            enemyCurrentState = EnemyState.DEATH;
+        }
+
         if (enemyCurrentState != EnemyState.DEATH)
         {
             enemyCurrentState = SetEnemyState(enemyCurrentState, enemyLastState, enemyToPlayerDistance);

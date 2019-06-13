@@ -20,20 +20,41 @@ public class EnemyPatrol : MonoBehaviour
 
     private Vector3 nextDestination;
 
+    private EnemyHealth enemyHealth;
+
     void Awake()
     {
         playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
         navAgent = GetComponent<NavMeshAgent>();
+        enemyHealth = GetComponent<EnemyHealth>();
     }
 
     void Update()
     {
+        if(enemyHealth.health > 0)
+        {
+            MoveAndAttack();
+        }
+        else
+        {
+            animator.SetBool("Death", true);
+            navAgent.enabled = false;
+
+            if (!animator.IsInTransition(0) && animator.GetCurrentAnimatorStateInfo(0).IsName("Death") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f)
+            {
+                Destroy(gameObject, 2f);
+            }
+        }
+    }
+
+    void MoveAndAttack()
+    {
         float distance = Vector3.Distance(transform.position, playerTarget.position);
 
-        if(distance > walkDistance)
+        if (distance > walkDistance)
         {
-            if(navAgent.remainingDistance <= 0.5f)
+            if (navAgent.remainingDistance <= 0.5f)
             {
                 navAgent.isStopped = false;
                 animator.SetBool("Walk", true);
@@ -43,7 +64,7 @@ public class EnemyPatrol : MonoBehaviour
                 nextDestination = walkPoints[walkIndex].position;
                 navAgent.SetDestination(nextDestination);
 
-                if(walkIndex == walkPoints.Length - 1)
+                if (walkIndex == walkPoints.Length - 1)
                 {
                     walkIndex = 0;
                 }
@@ -55,7 +76,7 @@ public class EnemyPatrol : MonoBehaviour
         }
         else
         {
-            if(distance > attackDistance)
+            if (distance > attackDistance)
             {
                 navAgent.isStopped = false;
                 animator.SetBool("Walk", false);
@@ -72,7 +93,7 @@ public class EnemyPatrol : MonoBehaviour
                 Vector3 targetPosition = new Vector3(playerTarget.position.x, transform.position.y, playerTarget.position.z);
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetPosition - transform.position), 5f * Time.deltaTime);
 
-                if(currentAttackTime >= waitAttackTime)
+                if (currentAttackTime >= waitAttackTime)
                 {
                     int attackRange = Random.Range(1, 3);
                     animator.SetInteger("Atk", attackRange);

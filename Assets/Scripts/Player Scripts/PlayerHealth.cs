@@ -7,6 +7,13 @@ public class PlayerHealth : MonoBehaviour
     public float health = 100f;
     private bool isShielded;
 
+    private Animator animator;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     public bool Shielded
     {
         get
@@ -28,7 +35,12 @@ public class PlayerHealth : MonoBehaviour
 
             if(health <= 0f)
             {
-                // TODO: player dies
+                animator.SetBool("Death", true);
+
+                if(!animator.IsInTransition(0) && animator.GetCurrentAnimatorStateInfo(0).IsName("Death") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95)
+                {
+                    // PLAYER DIED
+                }
             }
         }
     }

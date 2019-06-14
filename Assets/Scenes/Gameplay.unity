@@ -3396,5 +3396,9 @@ PrefabInstance:
       propertyPath: walkPoints.Array.data[2]
       value: 
       objectReference: {fileID: 1752071908}
+    - target: {fileID: 7395443, guid: 15fe5f2ab3f5b4ce2afe31c54085c0b8, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 534669904}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15fe5f2ab3f5b4ce2afe31c54085c0b8, type: 3}

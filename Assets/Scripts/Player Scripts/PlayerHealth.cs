@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -9,9 +10,12 @@ public class PlayerHealth : MonoBehaviour
 
     private Animator animator;
 
+    private Image healthImage;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
+        healthImage = GameObject.Find("Health Icon").GetComponent<Image>();
     }
 
     public bool Shielded
@@ -32,6 +36,7 @@ public class PlayerHealth : MonoBehaviour
         if(!isShielded)
         {
             health -= amount;
+            healthImage.fillAmount = health / 100f;
 
             if(health <= 0f)
             {
@@ -43,5 +48,16 @@ public class PlayerHealth : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void HealPlayer(float healAmount)
+    {
+        health += healAmount;
+
+        if(health > 100f)
+        {
+            health = 100f;
+        }
+        healthImage.fillAmount = health / 100f;
     }
 }

@@ -8,6 +8,6 @@ public class Healing : MonoBehaviour
 
     void Start()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().health += healAmount;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().HealPlayer(healAmount);
     }
 }

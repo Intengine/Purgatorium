@@ -1217,7 +1217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f952d153f7d6742df8bdc817927b6d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followHeight: 8
+  followHeight: 12
   followDistance: 6
 --- !u!114 &534669907
 MonoBehaviour:

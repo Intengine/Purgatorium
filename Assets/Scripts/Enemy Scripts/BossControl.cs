@@ -46,5 +46,20 @@ public class BossControl : MonoBehaviour
             animator.SetBool("Death", true);
             Destroy(gameObject, 3f);
         }
+        else
+        {
+            if(bossStateChecker.BossState == BossState.PAUSE)
+            {
+                navAgent.isStopped = false;
+                animator.SetBool("Run", true);
+                navAgent.SetDestination(playerTarget.position);
+            } else if(bossStateChecker.BossState == BossState.ATTACK)
+            {
+                animator.SetBool("Run", false);
+
+                Vector3 targetPosition = new Vector3(playerTarget.position.x, transform.position.y, playerTarget.position.z);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetPosition - transform.position), 5f * Time.deltaTime);
+            }
+        }
     }
 }

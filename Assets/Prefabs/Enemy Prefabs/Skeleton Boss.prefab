@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7594848755009338518}
   - component: {fileID: 129829}
   - component: {fileID: 7064127498181150982}
+  - component: {fileID: 1265711132345103659}
   m_Layer: 9
   m_Name: Skeleton Boss
   m_TagString: Boss
@@ -139,6 +140,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb96f02ba1244737ad98d4bd3bcc237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1265711132345103659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7302c938878a94dd5887e79bcdcbb588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossFire: {fileID: 0}
+  bossMagic: {fileID: 0}
 --- !u!1 &129830
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,19 +7,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public float health = 100f;
 
-    private Image healthImage;
-
-    void Awake()
-    {
-        if(tag == "Boss")
-        {
-            healthImage = GameObject.Find("Health Foreground Boss").GetComponent<Image>();
-        }
-        else
-        {
-            healthImage = GameObject.Find("Health Foreground").GetComponent<Image>();
-        }
-    }
+    public Image healthImage;
 
     public void TakeDamage(float amount)
     {

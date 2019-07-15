@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  healthImage: {fileID: 0}
 --- !u!114 &7064127498181150982
 MonoBehaviour:
   m_ObjectHideFlags: 0

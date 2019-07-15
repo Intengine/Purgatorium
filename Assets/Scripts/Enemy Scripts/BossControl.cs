@@ -43,6 +43,7 @@ public class BossControl : MonoBehaviour
     {
         if(bossStateChecker.BossState == BossState.DEATH)
         {
+            navAgent.isStopped = true;
             animator.SetBool("Death", true);
             Destroy(gameObject, 3f);
         }

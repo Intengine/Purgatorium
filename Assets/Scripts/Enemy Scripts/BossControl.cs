@@ -59,6 +59,24 @@ public class BossControl : MonoBehaviour
 
                 Vector3 targetPosition = new Vector3(playerTarget.position.x, transform.position.y, playerTarget.position.z);
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetPosition - transform.position), 5f * Time.deltaTime);
+
+                if(currentAttackTime >= waitAttackTime)
+                {
+                    int attackRange = Random.Range(1, 5);
+                    animator.SetInteger("Atk", attackRange);
+                    currentAttackTime = 0f;
+                    finishedAttacking = false;
+                }
+                else
+                {
+                    animator.SetInteger("Atk", 0);
+                    currentAttackTime += Time.deltaTime;
+                }
+            }
+            else
+            {
+                animator.SetBool("Run", false);
+                navAgent.isStopped = true;
             }
         }
     }

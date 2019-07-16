@@ -6812,7 +6812,7 @@ GameObject:
   - component: {fileID: 1234828013}
   - component: {fileID: 772377428}
   - component: {fileID: 2199602519256034252}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Black Knight
   m_TagString: Player
   m_Icon: {fileID: 0}

@@ -9537,6 +9537,7 @@ GameObject:
   - component: {fileID: 198862004796860284}
   - component: {fileID: 199639040776451242}
   - component: {fileID: 1283475669051588380}
+  - component: {fileID: 452159290182294100}
   m_Layer: 0
   m_Name: Boss Hit
   m_TagString: Untagged
@@ -14242,6 +14243,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 1
+--- !u!114 &452159290182294100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623750204401448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dfdba194b8c24b42812a715216a2867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  radius: 0.3
+  damageCount: 10
 --- !u!1 &1889350249932026
 GameObject:
   m_ObjectHideFlags: 0

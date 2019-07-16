@@ -63,7 +63,7 @@ public class BossControl : MonoBehaviour
 
                 if(currentAttackTime >= waitAttackTime)
                 {
-                    int attackRange = Random.Range(1, 5);
+                    int attackRange = Random.Range(3, 5);
                     animator.SetInteger("Atk", attackRange);
                     currentAttackTime = 0f;
                     finishedAttacking = false;

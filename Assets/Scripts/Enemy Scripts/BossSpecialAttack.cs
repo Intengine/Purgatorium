@@ -16,11 +16,13 @@ public class BossSpecialAttack : MonoBehaviour
 
     void BossFireTornado()
     {
-        
+        Instantiate(bossFire, playerTarget.position, Quaternion.Euler(0f, Random.Range(0f, 360f), 0f));
     }
 
     void BossSpell()
     {
-
+        Vector3 temporary = playerTarget.position;
+        temporary.y += 1.5f;
+        Instantiate(bossMagic, temporary, Quaternion.identity);
     }
 }

@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7302c938878a94dd5887e79bcdcbb588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossFire: {fileID: 0}
-  bossMagic: {fileID: 0}
+  bossFire: {fileID: 1921226214802806, guid: 3809a810cd8104c2298ed6df026d4e23, type: 3}
+  bossMagic: {fileID: 1623750204401448, guid: 1319d9c3877eb41218bfb2b89a7d7276, type: 3}
 --- !u!1 &129830
 GameObject:
   m_ObjectHideFlags: 0

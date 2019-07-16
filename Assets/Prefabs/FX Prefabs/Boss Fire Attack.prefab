@@ -4562,7 +4562,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  radius: 0.3
+  radius: 0.5
   damageCount: 20
 --- !u!1 &1994702000552650
 GameObject:

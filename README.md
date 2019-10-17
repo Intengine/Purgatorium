@@ -4,3 +4,6 @@ Unity RPG game [WIP]
 - Isometric camera
 - Quest system
 - Nice graphics
+
+## Release date
+TBA

@@ -7,3 +7,10 @@ Unity RPG game [WIP]
 
 ## Release date
 TBA
+
+## Screenshots - pre-pre-pre-alpha version:)
+- free assets
+- full-working one level (cemetery) with two enemies and boss
+- working UI (healing, few attacks)
+![prototype screen1](https://i.imgur.com/XFfIpoU.jpg)
+![prototype screen2](https://i.imgur.com/3K1kLjY.jpg)

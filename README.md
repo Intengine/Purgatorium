@@ -6,7 +6,7 @@ Unity RPG game [WIP]
 - Nice graphics
 
 ## Release date
-TBA
+TBA, demo will be release soon
 
 ## Screenshots - pre-pre-pre-alpha version:)
 - free assets
